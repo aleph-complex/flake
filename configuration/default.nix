@@ -24,6 +24,9 @@
     # KDE Plasma Desktop
     ./system/plasma.nix
 
+    # System hardening
+    ./system/security.nix
+
     # Audio, bluetooth, networking
     ./system/services.nix
 
