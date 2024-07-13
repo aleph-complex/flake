@@ -3,8 +3,11 @@
 {
   # Disable the systemd-boot EFI boot loader
   # It is now managed by Lanzaboote
-  boot.loader.systemd-boot.enable = false;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = false;
+    efi.canTouchEfiVariables = true;
+    timeout = 0; # Disables systemd-boot menu
+  };
 
   # Enable Lanzaboote
   boot.lanzaboote = {

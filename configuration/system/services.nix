@@ -14,7 +14,6 @@
 
   # Enables bluetooth
   hardware.bluetooth.enable = true;
-  # hardware.bluetooth.powerOnBoot = true;
 
   # Set time zone
   time.timeZone = "America/Denver";

@@ -4,11 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     
+    # Secure boot
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Database for nix-index + comma
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -20,7 +22,7 @@
         ./configuration # Hosts configuration files
         lanzaboote.nixosModules.lanzaboote
         nix-index-database.nixosModules.nix-index
-        { programs.nix-index-database.comma.enable = true; }
+        { programs.nix-index-database.comma.enable = true; } # Wraps comma
       ];
     };
   };

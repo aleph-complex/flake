@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   # Enable firewall and block all ports
   networking.firewall.enable = true;
@@ -11,8 +9,11 @@
   systemd.coredump.enable = false;
 
   # Enable ClamAV and keep it updated
-  services.clamav.daemon.enable = true;
-  services.clamav.updater.enable = true;
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+    scanner.enable = true;
+  };
 
   # Prevent kernel tampering
   security.lockKernelModules = true;
