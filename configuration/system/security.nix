@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   # Enable firewall and block all ports
   networking.firewall.enable = true;
@@ -30,16 +32,16 @@
 
   # Ignore incoming ICMP redirects (note: default is needed to ensure that the
   # setting is applied to interfaces added after the sysctls are set)
-  boot.kernel.sysctl."net.ipv4.conf.all.accept_redirects" = mkDefault false;
-  boot.kernel.sysctl."net.ipv4.conf.all.secure_redirects" = mkDefault false;
-  boot.kernel.sysctl."net.ipv4.conf.default.accept_redirects" = mkDefault false;
-  boot.kernel.sysctl."net.ipv4.conf.default.secure_redirects" = mkDefault false;
-  boot.kernel.sysctl."net.ipv6.conf.all.accept_redirects" = mkDefault false;
-  boot.kernel.sysctl."net.ipv6.conf.default.accept_redirects" = mkDefault false;
+  boot.kernel.sysctl."net.ipv4.conf.all.accept_redirects" = lib.mkDefault false;
+  boot.kernel.sysctl."net.ipv4.conf.all.secure_redirects" = lib.mkDefault false;
+  boot.kernel.sysctl."net.ipv4.conf.default.accept_redirects" = lib.mkDefault false;
+  boot.kernel.sysctl."net.ipv4.conf.default.secure_redirects" = lib.mkDefault false;
+  boot.kernel.sysctl."net.ipv6.conf.all.accept_redirects" = lib.mkDefault false;
+  boot.kernel.sysctl."net.ipv6.conf.default.accept_redirects" = lib.mkDefault false;
 
   # Ignore outgoing ICMP redirects
-  boot.kernel.sysctl."net.ipv4.conf.all.send_redirects" = mkDefault false;
-  boot.kernel.sysctl."net.ipv4.conf.default.send_redirects" = mkDefault false;
+  boot.kernel.sysctl."net.ipv4.conf.all.send_redirects" = lib.mkDefault false;
+  boot.kernel.sysctl."net.ipv4.conf.default.send_redirects" = lib.mkDefault false;
 
   # Allows full control over all network connections
   # Still deciding if it's a nuisance or worth it
