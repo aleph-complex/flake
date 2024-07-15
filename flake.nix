@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, lanzaboote, nix-index-database, ... }: {
+  outputs = { self, nixpkgs, lanzaboote, nix-index-database, nixos-cosmic, ... }: {
     nixosConfigurations.complex = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ 
