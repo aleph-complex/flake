@@ -11,8 +11,10 @@
     };
 
     # Database for nix-index + comma
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # COSMIC desktop environment
     nixos-cosmic = {
@@ -24,8 +26,10 @@
   outputs = { self, nixpkgs, lanzaboote, nix-index-database, nixos-cosmic, ... }: {
     nixosConfigurations.complex = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ 
-        ./configuration # Hosts configuration files
+      modules = [
+        # Nix files
+        ./applications
+        ./system
 
         lanzaboote.nixosModules.lanzaboote
 
