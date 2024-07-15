@@ -8,13 +8,6 @@
   # Disable coredump cause who needs crash reports
   systemd.coredump.enable = false;
 
-  # Enable ClamAV and keep it updated
-  services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-    scanner.enable = true;
-  };
-
   # Prevent kernel tampering
   security.lockKernelModules = true;
   security.protectKernelImage = true;
