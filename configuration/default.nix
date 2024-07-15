@@ -3,9 +3,6 @@
     # Desktop applications
     ./applications/applications.nix
 
-    # Boot process, kernel, secureboot
-    ./system/boot.nix
-
     # Chromium browser
     ./applications/chromium.nix
 
@@ -14,6 +11,12 @@
 
     # Gaming applications
     ./applications/gaming.nix
+
+    # Boot process, kernel, secureboot
+    ./system/boot.nix
+
+    # COSMIC desktop
+    #./system/cosmic.nix
 
     # NixOS generated hardware config
     ./system/hardware-configuration.nix

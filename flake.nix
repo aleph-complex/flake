@@ -13,6 +13,12 @@
     # Database for nix-index + comma
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    # COSMIC desktop environment
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, lanzaboote, nix-index-database, ... }: {
@@ -20,9 +26,19 @@
       system = "x86_64-linux";
       modules = [ 
         ./configuration # Hosts configuration files
+
         lanzaboote.nixosModules.lanzaboote
+
         nix-index-database.nixosModules.nix-index
         { programs.nix-index-database.comma.enable = true; } # Wraps comma
+
+        nixos-cosmic.nixosModules.default
+        {
+          nix.settings = {
+            substituters = [ "https://cosmic.cachix.org/" ];
+            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+          };
+        }
       ];
     };
   };
