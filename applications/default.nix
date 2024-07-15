@@ -1,15 +1,15 @@
 {
   imports = [
     # Desktop applications
-    ./applications/applications.nix
+    ./apps.nix
 
     # Chromium browser
-    ./applications/chromium.nix
+    ./chromium.nix
 
     # Command line tools
-    ./applications/cli-utilities.nix
+    ./cli-utilities.nix
 
     # Gaming applications
-    ./applications/gaming.nix
+    ./gaming.nix
   ];
 }
