@@ -18,6 +18,6 @@
   # Tooling for secureboot
   environment.systemPackages = [ pkgs.sbctl ];
 
-  # Update kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Update kernel to latest LTS
+  boot.kernelPackages = pkgs.linuxPackages;
 }
