@@ -8,10 +8,6 @@
     pulse.enable = true;
   };
 
-  # Define hostname and enable networking
-  networking.hostName = "complex";
-  networking.networkmanager.enable = true;
-
   # Enables bluetooth
   hardware.bluetooth.enable = true;
 

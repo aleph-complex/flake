@@ -15,9 +15,13 @@
     #pkiBundle = "/etc/secureboot";
   #};
 
+  # Prevent kernel tampering
+  security.lockKernelModules = true;
+  security.protectKernelImage = true;
+
   # Tooling for secureboot
   environment.systemPackages = [ pkgs.sbctl ];
 
   # Update kernel to latest LTS
-  boot.kernelPackages = pkgs.linuxPackages;
+  # boot.kernelPackages = pkgs.linuxPackages;
 }

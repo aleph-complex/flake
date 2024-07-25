@@ -9,16 +9,16 @@
     # NixOS generated hardware config
     ./hardware-configuration.nix
 
+    # Networking and firewall
+    ./networking.nix
+
     # Nix package manager
     ./nix-config.nix
 
     # KDE Plasma Desktop
     ./plasma.nix
 
-    # System hardening
-    ./security.nix
-
-    # Audio, bluetooth, networking
+    # Audio, bluetooth, etc
     ./services.nix
 
     # Defines the user account

@@ -8,8 +8,5 @@
 
     # Command line tools
     ./cli-utilities.nix
-
-    # Gaming applications
-    ./gaming.nix
   ];
 }
