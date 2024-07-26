@@ -9,6 +9,7 @@
     gc = {
       automatic = true;
       dates = "daily";
+      persistent = true;
       options = "--delete-older-than 5d";
     };
   };
@@ -21,6 +22,7 @@
       enable = true;
       operation = "boot";
       dates = "daily";
+      persistent = true;
       flake = "github:aleph-complex/flake#complex";
       flags = [ "--refresh" "--commit-lock-file" ];
     };
