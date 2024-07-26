@@ -5,11 +5,17 @@
     pulseaudio.enable = false;
   };
   
-  # Enable PipeWire and additional backends
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+  # Enable system services
+  services = {
+    # Audio backend
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+
+    # Enhanced scheduler
+    system76-scheduler.enable = true;
   };
 
   security.rtkit.enable = true; # Security features
