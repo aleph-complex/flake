@@ -1,5 +1,8 @@
 {
   imports = [
+    # Desktop and CLI apps
+    ./applications.nix
+
     # Boot process, kernel, secureboot
     ./boot.nix
 

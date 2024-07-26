@@ -1,12 +1,22 @@
 { pkgs, nixpkgs, ... }:
 
 {
-  # Install Chromium
+  # Installs desktop applications
   environment = {
-    systemPackages = [ pkgs.chromium ];
+    sessionVariables.NIXOS_OZONE_WL = "1"; # Enable Wayland for Electron/Chromium
 
-    # Enable Wayland for Electron/Chromium
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    systemPackages = (with pkgs; [
+      # Desktop applications
+      vesktop # Custom discord client
+      vscodium # MS-less build of VS Code
+      chromium # Chrome minus the Google
+
+      # CLI programs
+      git # Version management
+      gh # GitHub CLI
+      aria2 # Downloads things
+      btop # System monitor
+    ]);
   };
 
   # Enable WideVine for DRM protected content

@@ -28,8 +28,7 @@
       system = "x86_64-linux";
       modules = [
         # Nix files
-        ./applications
-        ./system
+        ./config
 
         lanzaboote.nixosModules.lanzaboote
 
