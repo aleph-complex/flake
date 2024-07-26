@@ -9,6 +9,8 @@
     timeout = 0; # Disables systemd-boot menu
   };
 
+  boot.initrd.luks.devices.root.device = { "/dev/nvme0n1p2" };
+
   # Enable Lanzaboote
   #boot.lanzaboote = {
     #enable = true;
