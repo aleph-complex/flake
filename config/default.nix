@@ -7,7 +7,7 @@
     ./boot.nix
 
     # COSMIC desktop
-    ./cosmic.nix
+    #./cosmic.nix
 
     # NixOS generated hardware config
     ./hardware-configuration.nix
@@ -19,7 +19,7 @@
     ./nix-config.nix
 
     # KDE Plasma Desktop
-    #./plasma.nix
+    ./plasma.nix
 
     # Audio, bluetooth, etc
     ./services.nix
