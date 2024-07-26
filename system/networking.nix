@@ -8,7 +8,4 @@
   networking.firewall.allowPing = false;
   networking.firewall.allowedTCPPorts = [];
   networking.firewall.allowedUDPPorts = [];
-
-  # Filters network connections
-  services.opensnitch.enable = true;
 }
