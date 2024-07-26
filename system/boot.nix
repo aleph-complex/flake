@@ -1,31 +1,43 @@
 { pkgs, lanzaboote, ... }:
 
 {
-  # Disable the systemd-boot EFI boot loader
-  # It is now managed by Lanzaboote
-  boot.loader = {
-    systemd-boot.enable = false;
-    systemd-boot.editor = false;
-    efi.canTouchEfiVariables = true;
-    timeout = 0; # Disables systemd-boot menu
-  };
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = false; # Overidden by Lanzaboote
+        editor = false; # Disable kernel command line editor
+      };
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+    };
 
-  boot.kernelParams = ["quiet" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3"];
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
+    initrd = {
+      verbose = false; # Quiet boot
+      systemd.enable = true; # TPM2 unlock
+      luks.devices.root = {
+        device = "/dev/nvme0n1p2";
+        preLVM = true;
+        crypttabExtraOpts = [ "tpm2-device=auto" ];
+      };
+    };
 
-  boot.initrd.systemd.enable = true;
+    # Secure boot support
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
 
-  boot.initrd.luks.devices.root = {
-    device = "/dev/nvme0n1p2";
-    preLVM = true;
-    crypttabExtraOpts = [ "tpm2-device=auto" ];
-  };
+    # Quiet boot
+    kernelParams = [
+      "quiet"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+    consoleLogLevel = 0;
 
-  # Enable Lanzaboote
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
+    # Update to latest kernel
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   # Prevent kernel tampering
@@ -34,7 +46,4 @@
 
   # Tooling for secureboot and tpm2
   environment.systemPackages = [ pkgs.sbctl pkgs.tpm2-tss];
-
-  # Update kernel to latest
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

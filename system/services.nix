@@ -1,16 +1,18 @@
 {
-  # Enable PipeWire for audio
-  security.rtkit.enable = true; # Security features
-  hardware.pulseaudio.enable = false; # Makes sure pulseaudio isn't enabled
+  # Enable bluetooth and disable pulseaudio
+  hardware = {
+    bluetooth.enable = true;
+    pulseaudio.enable = false;
+  };
+  
+  # Enable PipeWire and additional backends
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
 
-  # Enables bluetooth
-  hardware.bluetooth.enable = true;
+  security.rtkit.enable = true; # Security features
 
-  # Set time zone
   time.timeZone = "America/Denver";
 }
