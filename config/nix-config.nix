@@ -10,7 +10,7 @@
       automatic = true;
       dates = "daily";
       options = "--delete-older-than 5d";
-    }
+    };
   };
 
   # Allow unfree packages
