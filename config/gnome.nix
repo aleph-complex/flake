@@ -4,7 +4,7 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    displayManager.gdm.wayland = true;
+    # displayManager.gdm.wayland = true;
     desktopManager.gnome.enable = true;
   };
 
@@ -18,5 +18,5 @@
     evince # document viewer
   ]);
 
-  environment.systemPackages = [ pkgs.gnomeExtensions.appindicator ];
+  environment.systemPackages = [ pkgs.gnomeExtensions.appindicator pkgs.gnome-tweaks ];
 }
