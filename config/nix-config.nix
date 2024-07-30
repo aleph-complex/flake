@@ -17,16 +17,5 @@
   # Allow unfree packages
   nixpkgs.config = { allowUnfree = true; };
 
-  system = {
-    autoUpgrade = {
-      enable = true;
-      operation = "boot";
-      dates = "daily";
-      persistent = true;
-      flake = "github:aleph-complex/flake#complex";
-      flags = [ "--refresh" "--commit-lock-file" ];
-    };
-
-    stateVersion = "24.05";
-  };
+  system.stateVersion = "24.05";
 }
