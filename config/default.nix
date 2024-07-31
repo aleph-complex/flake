@@ -6,9 +6,6 @@
     # Boot process, kernel, secureboot
     ./boot.nix
 
-    # COSMIC desktop
-    #./cosmic.nix
-
     # GNOME desktop
     ./gnome.nix
 
