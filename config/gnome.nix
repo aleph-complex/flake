@@ -19,12 +19,12 @@
     seahorse
     yelp
     simple-scan
+    gnome-calendar
+    gnome-font-viewer
   ]) ++ (with pkgs.gnome; [
     # for packages that are pkgs.gnome.*
-    gnome-calendar
     gnome-clocks
     gnome-contacts
-    gnome-font-viewer
     gnome-maps
     gnome-weather
   ]);
