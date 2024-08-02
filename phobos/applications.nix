@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # Installs desktop applications
@@ -18,6 +18,9 @@
       btop # System monitor
     ]);
   };
+
+  # Enables comma wrapped by nix-index-database
+  programs.nix-index-database.comma.enable = true;
 
   # Enable WideVine for DRM protected content
   nixpkgs.config.chromium.enableWideVine = true;

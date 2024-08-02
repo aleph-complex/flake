@@ -1,4 +1,4 @@
-{ pkgs, lanzaboote, ... }:
+{ pkgs, inputs, ... }:
 
 {
   boot = {
@@ -22,7 +22,7 @@
     };
 
     # Secure boot support
-    lanzaboote = {
+    inputs.lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };

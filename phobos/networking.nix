@@ -1,7 +1,7 @@
 {
   networking = {
     # Define hostname and enable networking
-    hostName = "complex";
+    hostName = "phobos";
     networkmanager.enable = true;
   
     # Enable firewall and block all ports
