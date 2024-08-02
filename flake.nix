@@ -25,7 +25,6 @@
         # Nix files
         ./deimos
 
-        inputs.mac-app-util.darwinModules.default
         inputs.nix-index-database.darwinModules.nix-index
       ];
       specialArgs = {
@@ -48,9 +47,6 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Trampoline launchers for Nix installed apps
-    mac-app-util.url = "github:hraban/mac-app-util";
 
     # Database for nix-index + comma
     nix-index-database = {
