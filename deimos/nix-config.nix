@@ -18,8 +18,8 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   nix.settings.extra-platforms = [ "x86_64-darwin" ];
 
-  # Use n for the flake's nixpkgs
-  nix.registry.n.flake = inputs.nixpkgs;
+  # Use nixpkgs from the flake
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   # Enable TouchID for sudo
   security.pam.enableSudoTouchIdAuth = true;
