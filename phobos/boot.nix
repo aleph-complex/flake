@@ -22,7 +22,7 @@
     };
 
     # Secure boot support
-    inputs.lanzaboote = {
+    lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };

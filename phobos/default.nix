@@ -9,6 +9,9 @@
     # GNOME desktop
     ./gnome.nix
 
+    # Enable hardware features with TuxClocker and ROCm / ZLUDA
+    ./gpu.nix
+
     # NixOS generated hardware config
     ./hardware-configuration.nix
 
